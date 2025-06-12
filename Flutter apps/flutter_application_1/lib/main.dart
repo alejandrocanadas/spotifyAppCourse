@@ -1,9 +1,12 @@
 import 'dart:developer' as developer;
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/configs/theme/app_theme.dart';
+import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:flutter_application_1/presentation/splash/pages/splash.dart';
+import 'package:flutter_application_1/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
@@ -23,6 +26,12 @@ void main() async {
   } catch (e) {
     developer.log('Error initializing HydratedBloc storage: $e');
   }
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+
+  await initializeDependencies();
   
   runApp(const MyApp());
 }

@@ -41,6 +41,12 @@ dependencies:
   # Hydrated Bloc Dependency
   hydrated_bloc: ^10.0.0
   path_provider: ^2.1.5
+  # Firebase Dependency
+  firebase_core: ^2.13.1
+  firebase_auth: ^4.6.2
+  cloud_firestore: ^4.8.0
+  get_it: 
+  dartz: 
 
 dev_dependencies:
   flutter_test:
